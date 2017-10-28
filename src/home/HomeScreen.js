@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Posts from '../posts/Posts';
 
 export default class HomeScreen extends Component {
@@ -47,9 +47,16 @@ export default class HomeScreen extends Component {
       }
     ];
     return (
-      <View>
+      <View style={styles.container}>
         <Posts posts={posts} />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ecebeb'
+  }
+});
