@@ -33,7 +33,7 @@ export default class CategoriesScreen extends Component {
     ];
     return (
       <View style={styles.container}>
-        <Posts posts={posts} />
+        <Posts posts={posts} goToCategory={({ category }) => {}} />
       </View>
     );
   }
