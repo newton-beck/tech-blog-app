@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { FlatList, Text, StyleSheet } from 'react-native';
+import Post from '../post/Post';
 
-export default class Posts extends Component {
+const Posts = ({ posts }) => {
+  return (
+    <FlatList
+      data={posts}
+      renderItem={({ item }) => <Post post={item}/>} />
+  );
+};
 
-  render() {
-    return (
-      <View>
-        <FlatList
-          data={this.props.posts}
-          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>} />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  item: {
-    padding: 20
-  }
-});
+export default Posts;
