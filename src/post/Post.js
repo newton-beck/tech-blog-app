@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
-const Post = ({ post }) => {
+const Post = ({ post, goToCategory }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{post.title}</Text>
@@ -11,7 +11,7 @@ const Post = ({ post }) => {
       </View>
       <Text style={styles.description}>{post.description}</Text>
       <View style={styles.actions}>
-        <TouchableHighlight>
+        <TouchableHighlight onPress={() => { goToCategory(post) }}>
           <Text style={styles.category}>{post.category}</Text>
         </TouchableHighlight>
         <TouchableHighlight>

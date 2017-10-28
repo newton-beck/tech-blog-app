@@ -50,9 +50,12 @@ export default class HomeScreen extends Component {
         category: 'devops'
       }
     ];
+    let { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Posts posts={posts} />
+        <Posts posts={posts}
+          goToCategory={({ category }) => { navigate('Categories', { name: category }) }} 
+        />
       </View>
     );
   }
