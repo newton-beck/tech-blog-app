@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 const Post = ({ post }) => {
   return (
@@ -11,8 +11,12 @@ const Post = ({ post }) => {
       </View>
       <Text style={styles.description}>{post.description}</Text>
       <View style={styles.actions}>
-        <Text>{post.category}</Text>
-        <Text>Continue lendo</Text>
+        <TouchableHighlight>
+          <Text style={styles.category}>{post.category}</Text>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <Text style={styles.details}>Continue lendo</Text>
+        </TouchableHighlight>
       </View>
     </View>
   );
@@ -49,6 +53,20 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  category: {
+    backgroundColor: '#73bebe',
+    color: '#fff',
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  details: {
+    borderColor: '#fba702',
+    borderRadius: 4,
+    borderWidth: 1,
+    color: '#fba702',
+    fontWeight: 'bold',
+    padding: 10,
   }
 });
 
