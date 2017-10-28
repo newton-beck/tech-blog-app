@@ -3,9 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import Posts from '../posts/Posts';
 
 export default class CategoriesScreen extends Component {
-  static navigationOptions = {
-    title: 'Categories'
-  }
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.state.params.name,
+  });
 
   render() {
     let posts = [
