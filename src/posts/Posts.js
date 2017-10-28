@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import Post from '../post/Post';
 
 const Posts = ({ posts }) => {
