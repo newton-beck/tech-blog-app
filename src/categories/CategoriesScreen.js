@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Posts from '../posts/Posts';
+import { header } from '../styles/Header';
 
 export default class CategoriesScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.name,
+    headerStyle: header.container,
+    headerTitleStyle: header.title,
+    headerBackTitleStyle: header.back,
+    headerTintColor: '#fff'
   });
 
   render() {

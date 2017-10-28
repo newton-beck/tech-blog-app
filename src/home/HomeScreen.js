@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Posts from '../posts/Posts';
+import { header } from '../styles/Header';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Home'
+    title: 'Home',
+    headerStyle: header.container,
+    headerTitleStyle: header.title
   }
 
   render() {
@@ -54,7 +57,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Posts posts={posts}
-          goToCategory={({ category }) => { navigate('Categories', { name: category }) }} 
+          goToCategory={({ category }) => { navigate('Categories', { name: category }) }}
         />
       </View>
     );
@@ -65,5 +68,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ecebeb'
-  }
+  },
 });
