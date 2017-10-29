@@ -17,9 +17,7 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     fetch('http://192.168.25.188:3000/posts')
-    .then((resp) => {
-      resp.json();
-    })
+    .then((resp) => resp.json())
     .then((posts) => {
       this.setState({ posts: posts });
     })
