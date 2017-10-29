@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Posts from '../posts/Posts';
+import Error from '../error/Error';
 import { header } from '../styles/Header';
 
 export default class HomeScreen extends Component {
@@ -12,7 +13,7 @@ export default class HomeScreen extends Component {
 
   constructor() {
     super();
-    this.state = { posts: [] };
+    this.state = { posts: [], error: null };
   }
 
   componentDidMount() {
@@ -22,11 +23,26 @@ export default class HomeScreen extends Component {
       this.setState({ posts: posts });
     })
     .catch((e) => {
-      console.log(e);
+      this.setState({ error: e });
     });
   }
 
   render() {
+    let { error } = this.state;
+    if (error !== null) {
+      return this._renderError();
+    } else {
+      return this._renderPosts();
+    }
+  }
+
+  _renderError() {
+    return (
+      <Error />
+    );
+  }
+
+  _renderPosts() {
     let { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
